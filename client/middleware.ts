@@ -22,6 +22,7 @@ export default clerkMiddleware((auth, req) => {
         return NextResponse.redirect(new URL("/home", req.url));
     }
     // Not Logged-In.
+    console.log('==userId==========', userId)
     if (!userId) {
         if (!isPublicRoute(req) && !isPublicApiRoute(req)) {
             return NextResponse.redirect(new URL("/sign-in", req.url));
